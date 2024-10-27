@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Player({ name, symbol, isActive }) {
+export default function Player({ name, symbol, isActive, onChangeName }) {
   const [playerName, setPlayerName] = useState(name);
   const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef();
 
-  function handleEditClick() {
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditing]);
+
+  function handleEditClick(event) {
+    if (event.type === "keydown" && event.key !== "Enter") {
+      return;
+    }
+
     setIsEditing((editing) => !editing);
+
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   }
 
   function handleNameChange(event) {
@@ -19,9 +34,11 @@ export default function Player({ name, symbol, isActive }) {
           <span className="player-name">{playerName}</span>
         ) : (
           <input
+            ref={inputRef}
             type="text"
             value={playerName}
             onChange={handleNameChange}
+            onKeyDown={handleEditClick}
             required
           />
         )}
