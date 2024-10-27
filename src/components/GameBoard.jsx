@@ -1,18 +1,17 @@
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export default function GameBoard() {
+export default function GameBoard({ board, hasWinner, onCellClick }) {
   return (
     <ol id="game-board">
-      {initialGameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
-            {row.map((cell, cellIndex) => (
-              <li key={cellIndex}>
-                <button>{cell}</button>
+            {row.map((col, colIndex) => (
+              <li key={colIndex}>
+                <button
+                  onClick={() => onCellClick(rowIndex, colIndex)}
+                  disabled={col || hasWinner}
+                >
+                  {col}
+                </button>
               </li>
             ))}
           </ol>
