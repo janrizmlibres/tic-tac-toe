@@ -1,11 +1,11 @@
-# DevFlow
+# Tic-Tac-Toe
 
 ![GitHub Release](https://img.shields.io/github/v/release/janrizmlibres/tic-tac-toe?color=orange)
 ![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Ftic-tac-toe-gamma-roan.vercel.app%2F)](https://tic-tac-toe-gamma-roan.vercel.app/)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot-new.png)
 
 ## 🌐 Demo
 
